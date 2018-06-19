@@ -51,36 +51,15 @@
       return this;
     }
 
-    BST.prototype.preOrder=function(root){
-      console.log(root.value);
-      if(root.left){
-        this.preOrder(root.left);
+    BST.prototype.depth=function(root){
+      if(!root){
+        return 0;
       }
-      if(root.right){
-        this.preOrder(root.right);
-      }
+      const leftDepth=this.depth(root.left);
+      const rightDepth=this.depth(root.right);
+      console.log(Math.max(leftDepth, rightDepth)+1);
     }
 
-    BST.prototype.postOrder=function(root){
-      if(root.left){
-        this.postOrder(root.left);
-      }
-      if(root.right){
-        this.postOrder(root.right);
-      }
-      console.log(root.value);
-    }
-
-    BST.prototype.inOrder=function(root){
-      if(root.left){
-        this.inOrder(root.left);
-      }
-      console.log(root.value);
-      if(root.right){
-        this.inOrder(root.right);
-      }
-    }
-      
     Node.prototype.insert = function(val){
       if(val<this.value){
         if(this.left){
@@ -100,21 +79,15 @@
       }
     }
 
-    var first = new BST(); //creates first BST, w/root node of null for now
-    first.insert(30).insert(20).insert(50).insert(80).insert(10).insert(40).insert(15).insert(65).insert(70).insert(25);
-    //console.log(first);
-
-    var second = new BST();
-    second.insert2(40).insert2(20).insert2(60).insert2(80).insert2(10);
-    //console.log(second);
-
     var third = new BST();
-    third.insert2(40).insert2(20).insert2(50).insert2(25);
-    console.log(third);
+    third.insert2(50).insert2(40).insert2(65).insert2(20).insert2(45).insert2(60).insert2(70);
+    //console.log(third);
 
-    third.preOrder(third.root); //node logged before its children (40,20,25,50)
-    third.postOrder(third.root); //node logged after its children (25,20,50,40)
-    third.inOrder(third.root); //nodes logged in order of values (20,25,40,50)
+    var fourth = new BST();
+    fourth.insert2(40).insert2(20).insert2(50).insert2(45).insert2(70).insert2(60).insert2(65);
+
+    third.depth(third.root); //(7): 1, 1, N, 1, 1, N, N - 1 iteration
+    fourth.depth(fourth.root); //(7): 1, 1, 1, N, N, N, N - 4 iterations
 
   </script>
   <body>
