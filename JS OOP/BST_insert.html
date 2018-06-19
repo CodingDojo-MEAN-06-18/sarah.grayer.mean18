@@ -1,0 +1,84 @@
+<html>
+  <head>
+  </head>
+    <script>
+
+    function BST(){
+      this.root=null;
+    }
+    function Node(val){ //object constructor for Node. Each has a value, and a left and right child
+      this.value=val;
+      this.left=null;
+      this.right=null;
+    }
+
+    BST.prototype.insert=function(val){
+      if(!this.root){
+        this.root=new Node(val);
+        return this;
+      }
+      var runner = this.root;
+      while(runner){ //as long as runner exists, do below check (don't expect to ever not have a runner)
+        if(val<runner.value){
+          if(runner.left){ //if runner.left exists
+            runner=runner.left; //move runner there
+          }
+          else{
+            runner.left=new Node(val); //create node there
+            return this;
+          }
+        }
+        else{
+          if(val>=runner.value){
+            if(runner.right){ // move runner there if right exists
+              runner=runner.right;
+            }
+            else{ //put new node here
+              runner.right=new Node(val);
+              return this;
+            }
+          }
+        }
+      }
+    }
+
+    BST.prototype.insert2=function(val){
+      if(!this.root){
+        this.root = new Node(val);
+        return this;
+      }
+      this.root.insert(val); //put logic in node this way, call on insert method
+      return this;
+    }
+
+    Node.prototype.insert = function(val){
+      if(val<this.value){
+        if(this.left){
+          this.left.insert(val);
+        }
+        else{
+          this.left = new Node(val);
+        }
+      }
+      else{
+        if(this.right){
+          this.right.insert(val);
+        }
+        else{
+          this.right = new Node(val);
+        }
+      }
+    }
+
+    var first = new BST(); //creates first BST, w/root node of null for now
+    first.insert(30).insert(20).insert(50).insert(80).insert(10).insert(40).insert(15).insert(65).insert(70).insert(25);
+    console.log(first);
+
+    var second = new BST();
+    second.insert2(40).insert2(20).insert2(60).insert2(80).insert2(10);
+    console.log(second);
+
+    </script>
+  <body>
+  </body>
+</html>
