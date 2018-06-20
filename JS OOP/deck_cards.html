@@ -1,0 +1,78 @@
+<html>
+  <head>
+  </head>
+  <script>
+
+    class Deck{ //each Deck instance can shuffle, reset, deal a random card (remove it from deck)
+      constructor(){
+        this.deck=[];
+      }
+      reset(){ //suites and values together make cards
+        this.deck=[];
+        const suits = ['Clubs', 'Hearts', 'Diamonds', 'Spades'];
+        const values = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+        for (const suit of suits){
+          for (const value of values){
+            this.deck.push(`${value} of ${suit}`);
+          }
+        }
+        return this;
+      }
+
+      shuffle(){
+        let m = this.deck.length, t, i;
+        while(m){
+          i = Math.floor(Math.random()* m--);
+          t = this.deck[m];
+          this.deck[m] = this.deck[i];
+          this.deck[i] = t;
+        }
+        return this;
+      }
+
+      deal(){
+        this.deck.pop();
+        return this;
+      }
+
+      show(){
+        console.log(this);
+        return this;
+      }
+    }
+
+
+    class Player{ //each player has a name, hand, and able to draw a card(add to hand), and discard a card
+      constructor(name){
+        this.name = name;
+        this.hand = []; //array taken from deck
+      }
+      draw(deck){
+        this.hand.push(deck.deal());
+        return this;
+      }
+      discard(){
+        this.hand.pop();
+        return this;
+      }
+      show(){
+        console.log(this);
+        return this;
+      }
+    }
+
+    const deck1 = new Deck();
+    deck1.reset().shuffle().show();
+
+    const player1 = new Player("Sarah");
+    player1.draw(deck1).draw(deck1).show();
+    deck1.show();
+    player1.draw(deck1).draw(deck1).draw(deck1).show()
+    player1.discard().draw(deck1).draw(deck1).show();
+    deck1.deal().deal().deal().show();
+
+
+  </script>
+  <body>
+  </body>
+</html>
