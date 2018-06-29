@@ -1,0 +1,43 @@
+<http>
+  <head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body>
+    <div class="form">
+      <h1>Survey</h1>
+      <form action="/result" method='post'>
+        <fieldset>
+          <div class = "input">
+            <label>Your Name: </label>
+            <input type="text" name="name">
+          </div>
+          <div class = "input">
+            <label>Dojo Location: </label>
+            <select name="location">
+              <option value="Chicago">Chicago</option>
+              <option value="Seattle">Seattle</option>
+              <option value="NYC">NYC</option>
+              <option value="Denver">Denver</option>
+              <option value="Online">Online</option>
+            </select>
+          </div>
+          <div class = "input">
+            <label>Favorite Language: </label>
+            <select name = "language">
+              <option value="JavaScript">JavaScript</option>
+              <option value="Python">Python</option>
+              <option value="Ruby">Ruby</option>
+              <option value="CSS">CSS</option>
+            </select>
+          </div>
+          <div class = "input">
+            <label>Comment:(optional) </label>
+            <textarea rows="4" cols="40" name="comment"></textarea>
+          </div>
+          <button type="submit" id="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</http>
