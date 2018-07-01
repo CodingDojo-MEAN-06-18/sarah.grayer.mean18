@@ -1,0 +1,50 @@
+<http>
+  <head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+      $(document).ready(function(){
+        // triggers the connection event in our server
+        var socket = io.connect();
+
+        // submit data to the server using emit
+        $('#epic').submit(function(e) {
+      		e.preventDefault();
+		    	socket.emit("pressing_button", { //label of emit("pressing_button") matches socket.on("..") in index.js
+          });
+        });
+        $('#reset').submit(function(e) {
+      		e.preventDefault();
+		    	socket.emit("resetting", {
+          });
+        });
+
+        //display the emit response of the server called "updated_count" and "random_number"
+        socket.on("updated_count", function (count){
+			    $('#message').html("The button has been pushed " + JSON.stringify(count) + " time(s)");
+		  	});
+
+        socket.on("reset", function (count){
+			    $('#message').html("The button has been pushed " + JSON.stringify(count) + " time(s)");
+		  	});
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <h1 id="message"></h1><!--This is where the socket.on("updated_count") data will go-->
+    </div>
+
+    <h3>Push the button to update the count!</h3>
+    <form id="epic">
+      <button input type="submit" id="epic_button">Push the epic button</button>
+    </form>
+    <form id="reset">
+      <button input type="submit" id="reset_button">Reset Count</button>
+    </form>
+  </body>
+</http>
