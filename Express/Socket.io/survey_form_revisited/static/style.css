@@ -1,0 +1,22 @@
+.form{
+  margin-top: 100px;
+  text-align: center;
+}
+h1{
+  color: green;
+}
+.input{
+  padding: 5px;
+}
+#submit{
+  margin: 10px;
+  padding: 5px 7px;
+}
+fieldset{
+  width: 400px;
+  height: auto;
+  margin-left: 290px;
+}
+ul{
+  list-style: none;
+}
