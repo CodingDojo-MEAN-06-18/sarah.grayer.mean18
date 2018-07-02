@@ -1,0 +1,43 @@
+<http>
+  <head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+      $(document).ready(function(){
+        // triggers the connection event in our server
+        var socket = io.connect();
+
+        $('#green_button').click(function(){
+            socket.emit("pressed_green");
+          });
+        $('#blue_button').click(function(){
+            socket.emit("pressed_blue");
+          });
+        $('#pink_button').click(function(){
+            socket.emit("pressed_pink");
+          });
+
+        socket.on('change_green', function(data){
+          $('body').css("background-color", "green");
+        });
+        socket.on('change_blue', function(data){
+          $('body').css("background-color", "blue");
+        });
+        socket.on('change_pink', function(data){
+          $('body').css("background-color", "pink");
+        });
+
+      });
+      
+    </script>
+  </head>
+  <body>
+    <div class="buttons">
+      <button id="green_button">Green</button>
+      <button id="blue_button">Blue</button>
+      <button id="pink_button">Pink</button>
+    </div>
+  </body>
+</http>
