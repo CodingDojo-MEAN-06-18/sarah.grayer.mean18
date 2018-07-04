@@ -1,0 +1,14 @@
+<http>
+  <head>
+    <title>Quoting Dojo</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <h1>Here are the awesome quotes!</h1>
+    <% for(const quote of quotes){ %>
+      <h3>"<%= quote.quote %>"</h3>
+      <p>-<%= quote.name %></p>
+      <% } %>
+  </body>
+</http>
