@@ -1,0 +1,23 @@
+<http>
+  <head>
+    <title>Mongoose Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Edit <%= dog.name %>!</h1>
+    <form action="/<%= dog.id %>" method="post">
+      <fieldset>
+        <div class="form_line">
+          <label for "name">Name: </label>
+          <input type="text" name=name value="<%= dog.name %>">
+        </div>
+        <div class="form_line">
+          <label for "color">Color: </label>
+          <input type="text" name=color value="<%= dog.color %>">
+        </div>
+        <button input type="submit">Edit dog!</button>
+        <a href="/">Home</a>
+      </fieldset>
+    </form>
+  </body>
+</http>

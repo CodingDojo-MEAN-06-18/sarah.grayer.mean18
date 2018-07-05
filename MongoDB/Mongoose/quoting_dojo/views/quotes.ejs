@@ -8,7 +8,7 @@
     <h1>Here are the awesome quotes!</h1>
     <% for(const quote of quotes){ %>
       <h3>"<%= quote.quote %>"</h3>
-      <p>-<%= quote.name %></p>
+      <p>-<%= quote.name %> @ <%= quote.createdAt %> </p>
       <% } %>
   </body>
 </http>

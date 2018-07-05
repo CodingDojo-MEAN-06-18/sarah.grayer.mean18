@@ -1,0 +1,19 @@
+<http>
+  <head>
+    <title>Mongoose Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Pack of Dogs</h1>
+    <a href="/new">Add new dog</a>
+
+    <% for (const dog of dogs) { %>
+      <p>Name: <a href="/<%= dog._id%>"><%= dog.name %></a>
+        <a href="/<%= dog._id %>/edit/"><button>Edit Dog</button></a>
+        <form action="/<%= dog._id %>/delete/" method="post">
+          <input type=submit value="Delete">
+        </form>
+      </p>
+    <% } %>
+  </body>
+</http>

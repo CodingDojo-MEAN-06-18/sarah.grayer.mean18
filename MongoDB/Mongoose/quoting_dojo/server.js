@@ -7,6 +7,7 @@ const port=8000;
 const app=express();
 const session=require("express-session")
 const flash=require("express-flash");
+const time=require("express-timestamp")
 app.use(session({
   secret: 'super_secret',
   resave: false,
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended:true })); //set up body-parser to parse
 
 mongoose.connect('mongodb://localhost/quoting_dojo')//set up db connection
 const quoteSchema = new mongoose.Schema({ //set up Schema
-  name: {type:String, required:true},
+  name: {type:String, required:true, date:{type: Date, default: Date.now}},
   quote: {type:String, required:true}
 }, {timestamps: true });
 const Quote = mongoose.model('quotes', quoteSchema);//set up model, set quoteSchema in models as 'quotes'
