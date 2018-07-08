@@ -1,0 +1,16 @@
+.form_line{
+  display: block;
+  margin-top: 10px;
+}
+label{
+  display: block;
+}
+.comments{
+  margin-left: 50px;
+}
+.post{
+  margin-top: 50px;
+}
+body{
+  padding: 15px;
+}

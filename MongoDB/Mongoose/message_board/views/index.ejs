@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Message Board</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>The Dojo Message Board</h1>
+    <!-- Form to create new post w/name and message -->
+    <form action"/new" method="post">
+      <div class="form_line">
+        <label for "name">Name: </label>
+        <input type="text" name="name">
+      </div>
+      <div class="form_line">
+        <label for "name">Message: </label>
+        <textarea name="message"></textarea>
+      </div>
+      <div class="form_line">
+        <button type=submit>Post Message</button>
+      </div>
+    </form>
+
+    <!-- Show message -->
+    <% for(const message of messages) { %>
+      <div class="post">
+        <h3>Name: <%= message.name %></h3>
+        <h3>Message: <%= message.message %></h3>
+
+        <form action='/<%= message._id %>/delete' method="post">
+          <input type=submit value="Delete Message">
+        </form>
+
+        <!-- Show message comments -->
+        <% if (message.comments.length) { %>
+          <ul>
+            <% for (const comment of message.comments) { %>
+              <li>
+                <p>Name: <%= comment.name %></p>
+                <p>Comment: <%= comment.comment %></p>
+              </li>
+            <% } %>
+          </ul>
+        <% } %>
+
+        <!-- Form to create new comment on this message w/name and comment -->
+        <div class = "comments">
+          <form action"/<%= message._id %>/comment/" method="post">
+            <div class="form_line">
+              <label for "name">Name: </label>
+              <input type="text" name="name">
+            </div>
+            <div class="form_line">
+              <label for "comment">Comment: </label>
+              <textarea name="comment"></textarea>
+            </div>
+            <div class="form_line">
+              <button type=submit>Add Comment</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    <% } %>
+  </body>
+</html>
