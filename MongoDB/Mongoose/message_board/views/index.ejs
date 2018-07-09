@@ -6,7 +6,7 @@
   <body>
     <h1>The Dojo Message Board</h1>
     <!-- Form to create new post w/name and message -->
-    <form action"/new" method="post">
+    <form action = "/new_message" method="post">
       <div class="form_line">
         <label for "name">Name: </label>
         <input type="text" name="name">
@@ -26,9 +26,7 @@
         <h3>Name: <%= message.name %></h3>
         <h3>Message: <%= message.message %></h3>
 
-        <form action='/<%= message._id %>/delete' method="post">
-          <input type=submit value="Delete Message">
-        </form>
+        <a href = "/<%= message._id %>/delete?" >Delete Message</a>
 
         <!-- Show message comments -->
         <% if (message.comments.length) { %>
@@ -44,7 +42,7 @@
 
         <!-- Form to create new comment on this message w/name and comment -->
         <div class = "comments">
-          <form action"/<%= message._id %>/comment/" method="post">
+          <form action = "/<%= message._id %>/comment/" method="post">
             <div class="form_line">
               <label for "name">Name: </label>
               <input type="text" name="name">

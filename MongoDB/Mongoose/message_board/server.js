@@ -33,9 +33,6 @@ mongoose.model("Comment", CommentSchema);
 const Message = mongoose.model("Message");
 const Comment = mongoose.model("Comment");
 
-//routes
-
-//view index.ejs upon load
 app.get('/', function(req, res){
   console.log("In index route")
   Message.find({}).populate('comments').exec(function(err, messages){
@@ -46,8 +43,7 @@ app.get('/', function(req, res){
   });
 });
 
-//post, create message in db w/wdate in req.body, redirect back ('/')
-app.post('/new', function(req, res){
+app.post('/new_message', function(req, res){
   console.log("In route to add message... ")
   Message.create(req.body, function(err, result){
     if(err){
@@ -61,18 +57,7 @@ app.post('/new', function(req, res){
   })
 })
 
-//DELETE from DB
-app.post('/:id/delete/', function(req, res){
-  Message.remove({_id: req.params.id}, function(err, result){
-    if (err){
-      console.log(err);
-    }
-    console.log("Deleted message")
-    res.redirect('/');
-  })
-})
-
-app.post('/comment/:id', function(req, res){
+app.post('/:id/comment/', function(req, res){
   console.log("In route to add comment")
   Comment.create(req.body).then((comment) => {
     Message.findById(req.params.id).then((message) => {
@@ -93,56 +78,14 @@ app.post('/comment/:id', function(req, res){
   });
 });
 
-
-
-  //const messageID = req.params.id;
-  //Message.findOne({ _id: messageID }, function(err, message){
-  //  const newComment = new Comment({
-  //    name: req.body.name,
-    //  comment: req.body.comment });
-  //  Message.update({ _id: messageID }, {$push: {_comments: newComment }}, function(err){
-  //    if(err){
-  //      console.log(err);
-  //    }
-    //  newComment.save(function(err){
-    //    if(err){
-      //    console.log(err);
-      //    res.render('index', {errors: newComment.errors });
-      //  }
-      //  else{
-        //  console.log("Successfully added comment!");
-        //  res.redirect('/');
-      //  }
-  //    });
-  //  });
-  //});
-
-  //Comment.create(req.body, function(err, result){
-    //if(err){
-  //    console.log(err);
-  //  }
-  //  console.log("successful comment");
-  //  res.redirect('/');
-  //})
-
-//READ/Show.ejs
-//app.get("/:id", function(req, res){
-  //Dog.find({ _id: req.params.id }, function(err, response_object){
-    //if (err){
-    //  console.log(err);
-  //  }
-    //res.render("show", {dog: response_object[0]}); //Show the 1st response object matching the id given
-  //});
-//});
-
-//index.ejs (READ) Home page, find all
-//app.get('/', function(req, res){
-  //Dog.find({}, function(err, all_dogs){
-  //  if(err){
-    //  console.log(err);
-  //  }
-    //res.render('index', {dogs: all_dogs}); //use dogs in index.ejs, <% for (const dog of dogs) { %>
-//  });
-//});
+app.get('/:id/delete/', function(req, res){
+  Message.remove({_id: req.params.id}, function(err, result){
+    if (err){
+      console.log(err);
+    }
+    console.log("Deleted message")
+    res.redirect('/');
+  })
+})
 
 app.listen(port); //set above
