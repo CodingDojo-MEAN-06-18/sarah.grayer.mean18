@@ -1,0 +1,10 @@
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div class = "switch" *ngFor="let switch of switches; let idx=index"> <!-- switches is array from .ts file, loop through -->
+    <button *ngIf="switch" [ngClass]="{'on': switch}" (click)="flipSwitch(idx)">On</button>
+    <button *ngIf="!switch" [ngClass]="{'on': switch}" (click)="flipSwitch(idx)">Off</button>
+  </div>
+
+
