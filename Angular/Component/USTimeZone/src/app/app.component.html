@@ -1,0 +1,11 @@
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <button (click)="getDatebyZone('PST')" [ngClass]="{clicked: lastTimeZoneSelected==='PST'}">PST</button>
+  <button (click)="getDatebyZone('MST')" [ngClass]="{clicked: lastTimeZoneSelected==='MST'}">MST</button>
+  <button (click)="getDatebyZone('CST')" [ngClass]="{clicked: lastTimeZoneSelected==='CST'}">CST</button>
+  <button (click)="getDatebyZone('EST')" [ngClass]="{clicked: lastTimeZoneSelected==='EST'}">EST</button>
+  <button (click)="getDatebyZone('none')">Clear</button>
+  <h1>{{time | date: 'medium'}}</h1>
+  
