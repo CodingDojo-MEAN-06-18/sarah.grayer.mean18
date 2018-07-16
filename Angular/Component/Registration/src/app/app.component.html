@@ -1,0 +1,132 @@
+
+  <h1>{{ title }}</h1>
+
+  <div class="registered" *ngIf="userForm.submitted && users[0]">
+    <p>Thank you for registering, <span>{{users[users.length-1].first_name}}</span>! We sent you a confirmation email at <span>{{users[users.length-1].email}}</span>.</p>
+    <p>We will send all mail to <span>{{users[users.length-1].street}}, {{users[users.length-1].city}}, {{users[users.length-1].state}}</span>. Have a wonderful day!</p>
+  </div>
+
+  <form (submit)="onSubmit($event, userForm)" #userForm='ngForm'>
+    <fieldset>
+      <legend><h2>Account Information</h2></legend>
+      <div class="input_line">
+       *First Name: <input 
+          type="text"
+          name="first_name"
+          required
+          minlength="4"
+          maxlength="24"
+          [(ngModel)]="user.first_name"
+          #first_name='ngModel'>
+          <div class="errors" *ngIf="!first_name.valid && first_name.touched">Please enter your first name, with at least 4 characters.</div>
+      </div>
+      <div class="input_line">
+          *Last Name: <input 
+          type="text"
+          name="last_name"
+          required
+          minlength="4"
+          maxlength="24"
+          [(ngModel)]="user.last_name"
+          #last_name='ngModel'>
+          <div class="errors" *ngIf="!last_name.valid && last_name.touched">Please enter your last name, with at least 4 characters.</div>
+      </div>
+      <div class="input_line">
+          *Email: <input 
+          type="text"
+          name="email"
+          required
+          minlength="4"
+          maxlength="24"
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          [(ngModel)]="user.email"
+          #email='ngModel'>
+          <div class="errors" *ngIf="!email.valid && email.touched">Please enter a valid email address.</div>
+      </div>
+      <div class="input_line">
+        *Password: <input
+        type="password"
+        name="password"
+        required
+        minlength="6"
+        pattern="^([a-zA-Z0-9@*#]{6,15})$"
+        [(ngModel)]="user.password"
+        #password='ngModel'>
+        <div class="errors" *ngIf="!password.valid && password.touched">Please enter a password, with numbers/letters and at least 6 characters.</div>
+      </div>
+      <div class="input_line">
+          *Confirm Password: <input
+          type="password"
+          name="confirm_pw"
+          required
+          minlength="6"
+          pattern="^([a-zA-Z0-9@*#]{6,15})$"
+          [(ngModel)]="user.confirm_pw"
+          #confirm_pw='ngModel'>
+          <div class="errors" *ngIf="!confirm_pw.valid && confirm_pw.touched && (password.value !== confirm_pw.value)">Passwords do not match.</div>
+      </div>
+      <div class="input_line">
+          *Street Address: <input 
+          type="text"
+          name="street"
+          required
+          minlength="4"
+          maxlength="24"
+          [(ngModel)]="user.street"
+          #street='ngModel'>
+          <div class="errors" *ngIf="!street.valid && street.touched">Please enter your street address.</div>
+      </div>
+      <div class="input_line">
+          Unit/Apt #: <input 
+          type="text"
+          name="unit"
+          [(ngModel)]="user.unit"
+          #unit='ngModel'>
+      </div>
+      <div class="input_line">
+          *City: <input 
+          type="text"
+          name="city"
+          required
+          minlength="3"
+          maxlength="24"
+          [(ngModel)]="user.city"
+          #city='ngModel'>
+          <div class="errors" *ngIf="!city.valid && city.touched">Please enter your city.</div>
+      </div>
+      <div class="input_line">
+        *State:
+        <select name="state" 
+        [(ngModel)]="user.state"
+        #state='ngModel'
+        required>
+          <option value="ny">NY</option>
+          <option value="ca">CA</option>
+          <option value="al">AL</option>
+          <option value="co">CO</option>
+        </select>
+       </div>
+       <div class="errors" *ngIf="!state.valid && state.touched">Please select your state.</div>
+      <div class="input_line">
+        *I'm feeling lucky 
+        <input 
+          type="radio" 
+          name="lucky"
+          [(ngModel)]="user.lucky"
+          #lucky="ngModel"
+          required
+          value="true">Yes
+        <input
+          type="radio" 
+          name="lucky"
+          [(ngModel)]="user.lucky"
+          #lucky="ngModel"
+          required
+          value="false">No
+      </div>   
+    </fieldset>
+    <div class="submit" *ngIf="userForm.valid">
+     <button input type="submit">Register</button>
+    </div>
+  </form>
+  

@@ -1,0 +1,23 @@
+.input_line{
+    display: block;
+    margin-top: 5px;
+}
+button{
+    display: block;
+    width: 500px;
+    height: 35px;
+    margin-top:10px; 
+}
+form{
+    width: 500px;
+}
+.errors{
+    display: inline-block;
+    color: red;
+}
+span{
+    font-weight: bold;
+}
+p{
+    color: #4d7e33;
+}
