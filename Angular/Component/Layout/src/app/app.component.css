@@ -3,7 +3,5 @@ body{
     width: 1000px;
     height: 700px;
     color: white;
-    padding: 10px;
-    display: inline-blcok;
-    vertical-align: top;
+    padding: 15px;
 }
