@@ -1,0 +1,31 @@
+.up{
+    background-color: #b7d7a8;
+    color: black
+}
+.down{
+    background-color: #e99899;
+    color: black;
+}
+.delete{
+    background-color: black;
+    color: white;
+}
+.body{
+    width: 150px;
+    display: inline-block;
+    padding: 5px;
+}
+h2{
+    width: 50px;
+    display: inline-block;
+    vertical-align: center;
+}
+.quotes{
+    padding: 15px;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    border: 2px solid black;
+}
+body{
+    margin-top: 45px;
+}
