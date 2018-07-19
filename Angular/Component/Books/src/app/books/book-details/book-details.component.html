@@ -1,0 +1,12 @@
+<!--listen for a click event on row (click) to show here, running method onSelect(). Hold onto the info passed when clicked with new variabled selectedBook of type Book-->
+<section *ngIf='novel'> <!--only display this section if there selectedBook is defined-->
+  <fieldset>
+    <legend>Selected Book</legend>
+    <p>ID: {{ novel?.id }}</p> <!--can use safe navigation operator ? to check if this exists, avoid error messages when navigating to new page, and page will load quicker. if selectedBook is undefined/null, will not bother to check if it has .id. Not necessary in this case since this whole section will not show if selectedBook is null-->
+    <p>Title: {{ novel.title }}</p>
+    <p>Author: {{ novel.author }}</p>
+    <p>Year: {{ novel.year }}</p>
+    <p>Pages: {{ novel.pages }}</p>
+    <p>Publisher: {{ novel.publisher }}</p>
+  </fieldset>
+</section>
