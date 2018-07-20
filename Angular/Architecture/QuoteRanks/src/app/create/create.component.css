@@ -1,0 +1,12 @@
+.errors{
+    color: red;
+    font-style: italic;
+    display: inline-block;
+    margin-left: 15px;
+}
+.input_line{
+    display: block;
+}
+button{
+    margin-top: 5px;
+}
