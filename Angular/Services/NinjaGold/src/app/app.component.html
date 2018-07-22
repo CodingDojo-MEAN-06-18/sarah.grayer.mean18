@@ -1,6 +1,8 @@
+<h1>App Gold Count: {{ gold }}</h1>
 
+<app-location [building] = "'Farm'" [action] = "'Earns 2-5 Gold'" (dataEventEmitter)="goldFromChild($event)"></app-location>
+<app-location [building]="'Cave'" [action] = "'Earnes 5-10 Gold'" (dataEventEmitter)="goldFromChild($event)"> </app-location>
+<app-location [building]="'Casino'" [action] = "'Earn up to or Lose up to 100 Gold'" (dataEventEmitter)="goldFromChild($event)" ></app-location>
+<app-location [building]="'House'" [action] = "'Earns 7-15 Gold'" (dataEventEmitter)="goldFromChild($event)"></app-location>
 
-<h1>Gold Count: {{gold}}</h1>
-
-<app-location></app-location>
-
+<app-log></app-log>

@@ -9,7 +9,6 @@ import { DataService } from './data.service';
 
 export class AppComponent {
   gold: number = 0;
-
   title = 'app';
 
   constructor(private _dataService: DataService){}
@@ -17,5 +16,11 @@ export class AppComponent {
   ngOnInit(){
     this.gold = this._dataService.retrieveGold();
   } 
+
+  goldFromChild(data){
+    console.log(data);
+    this.gold=data;
+  }
+
 
 }
