@@ -1,0 +1,17 @@
+.data{
+    width: 400px;
+    display: inline-block;
+}
+img{
+    width: 400px;
+    height: auto;
+    display: inline-block;
+}
+h1{
+    width: 400px;
+    display: inline-block;
+}
+h3{
+    width: 400px;
+    display: inline-block;
+}
