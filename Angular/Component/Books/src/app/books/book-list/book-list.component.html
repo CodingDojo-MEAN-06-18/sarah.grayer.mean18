@@ -1,7 +1,10 @@
-<app-book-new (newBook)='onCreate($event)'></app-book-new><!--this object will create event newBook, need to listen for and perform action. runs onCreate() on parent-->
+<!--<app-book-new (newBook)='onCreate($event)'></app-book-new><!--this object will create event newBook, need to listen for and perform action. runs onCreate() on parent-->
 
 <!--loop in angular by putting *ngFor='let thing of things' directly on element you want to repeat-->
 <section>
+  <div *ngIf='errorMessage'>
+    <p>{{errorMessage}}</p>
+  </div>
     <table>
       <thead>
         <th>ID</th>
@@ -11,15 +14,15 @@
         <th>Actions</th>
       </thead>
       <tbody>
-        <tr *ngFor='let novel of books' (click)='onSelect(novel)'> <!-- include (click) listener and method to perform here, to apply to each row. Pass in book here to indicate which, scoped here, accept the book in onSelect()with book: type Book-->
+        <tr *ngFor='let novel of books | search' (click)='onSelect(novel)' [routerLink]="['/books', novel.id]"> <!-- include (click) listener and method to perform here, to apply to each row. Pass in book here to indicate which, scoped here, accept the book in onSelect()with book: type Book. Apply search pipe. routerLink can also = "book.id" to pass in as variable-->
           <td>{{novel.id}}</td>
-          <td>{{novel.title}}</td>
-          <td>{{novel.author}}</td>
+          <td>{{novel.title | titleize }}</td>  <!-- adding the titleize pipe transforms list immediately-->
+          <td>{{novel.author | titleize }}</td>
           <td>{{novel.year}}</td>
-          <td>Actions</td>
+          <td (click)='onEvent($event)'><button (click)='onDelete(novel.id)'>Delete</button></td> <!-- pass in novel.id to tell angular which book deleting-->
         </tr>
       </tbody>
     </table>
   </section>
 
-  <app-book-details [novel]='selectedBook'></app-book-details>
+  <!--<app-book-details [novel]='selectedBook'></app-book-details>-->

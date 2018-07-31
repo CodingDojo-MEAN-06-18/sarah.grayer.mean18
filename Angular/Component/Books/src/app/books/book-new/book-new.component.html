@@ -3,7 +3,7 @@
       <legend>Create Book</legend>
       {{ novelForm.value | json }} <!-- can see this info in real-time readable way w/json pipe -->
       <form (submit)='onSubmit($event, novelForm)' #novelForm='ngForm' > <!--Listen for event in angular w/(). Here, listen for submit action, and run method equal to onSubmit, which is defined in .ts. Can pass in $event here. bookForm represents whole form, which is reset in onSubmit() to empty -->
-        <div> <!--two way data binding. listen for an event/change (form input), update the object. ngModel reads this info and updates it at same time-->
+        <div class = "line"> <!--two way data binding. listen for an event/change (form input), update the object. ngModel reads this info and updates it at same time-->
           <label for="">Title: </label><input 
           [(ngModel)]='novel.title' 
           #title='ngModel' 
@@ -17,7 +17,7 @@
             <div *ngIf='title.errors.minlength' class="errors">Title must be at least {{ title.errors.minlength.requiredLength }}characters.</div>
           </div>
         </div>
-        <div>
+        <div class = "line">
           <label for="">Author: </label><input 
           type="text" 
           name="author" 
@@ -28,14 +28,14 @@
               <div *ngIf='author.errors.required' class="errors" >You must enter an author.</div>
           </div>
         </div>
-        <div>
+        <div class = "line">
           <label for="">Pages: </label><input 
           type="number" 
           name="pages" 
           [(ngModel)]='novel.pages' 
           required>
         </div>
-        <div>
+        <div class = "line">
           <label for="">Year: </label><input 
           type="number" 
           name="year" 
@@ -48,7 +48,7 @@
             <div *ngIf='year.min'></div>
           </div>
         </div>
-        <div>
+        <div class = "line">
           <label for="">Publisher: </label><input 
           type="text" name="publisher" 
           [(ngModel)]='novel.publisher' 

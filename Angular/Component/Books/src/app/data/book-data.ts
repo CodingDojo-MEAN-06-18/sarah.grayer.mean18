@@ -24,6 +24,22 @@ export const BOOKS: Book[] = [ // const of type Book []. Will fill w/Book type o
         year: 1969,
         pages: 190,
         publisher: 'Delacorte Press'
+    },
+    {
+        id: randomId(),
+        title:'behind closed doors',
+        author: 'b. a. paris',
+        year: 2017,
+        pages: 338,
+        publisher: "st. martin's griffin"
+    },
+    {
+        id: randomId(),
+        title:'the girls in the garden',
+        author: 'lisa jewell',
+        year: 2015,
+        pages: 312,
+        publisher: 'atria paperback'
     }
 ]; 
 
