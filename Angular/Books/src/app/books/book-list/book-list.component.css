@@ -1,0 +1,11 @@
+th{
+    text-decoration: underline;
+    font-size: 18px;
+}
+td{
+    padding: 10px 20px;
+}
+button{
+    border-radius: 3px;
+    padding: 2px 7px;
+}

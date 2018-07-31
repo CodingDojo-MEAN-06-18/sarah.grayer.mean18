@@ -17,7 +17,6 @@ export class AppComponent {
 
   calculateScore(form: NgForm){
     this.username = form.value.username;
-
     this._GithubService.retrieveGithubUser(this.username)
     .subscribe(
       user => {
