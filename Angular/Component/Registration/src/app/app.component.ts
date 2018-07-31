@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from './user'; //constructor User defined in user.us, from 'ng generate Class User'
 import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -21,5 +22,14 @@ export class AppComponent {
     this.user=new User();
     form.reset();
     console.log('users', this.users);
+  }
+
+  tasks=[
+    {title: "first"},
+    {title: "second"}
+  ]
+
+  invoked(event){ //event here to expect event, can be logged, send data from child to parent, the value passed through keyword $event
+    console.log("Invoked", event)
   }
 }

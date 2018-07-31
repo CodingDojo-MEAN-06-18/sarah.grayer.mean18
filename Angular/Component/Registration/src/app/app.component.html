@@ -1,5 +1,7 @@
 
   <h1>{{ title }}</h1>
+ <!--{{ tasks | json }}-->
+ <app-task [myTasks]='tasks' (myEvent)="invoked($event)"></app-task><!--give attribute name myTasks, set value to 'tasks', which is the array of tasks--><!--$event keyword tells invoked() function to expect data to be passed in. -->
 
   <div class="registered" *ngIf="userForm.submitted && users[0]">
     <p>Thank you for registering, <span>{{users[users.length-1].first_name}}</span>! We sent you a confirmation email at <span>{{users[users.length-1].email}}</span>.</p>

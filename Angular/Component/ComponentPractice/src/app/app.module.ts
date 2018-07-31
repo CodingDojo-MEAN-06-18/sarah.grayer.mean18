@@ -2,16 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { TaskComponent } from './task/task.component';
+import { MyComponentComponent } from './my-component/my-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent
+    MyComponentComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
