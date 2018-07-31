@@ -1,0 +1,18 @@
+.card{
+    width: 250px;
+    height: 300px;
+    outline: 3px solid hsl(300, 100%, 25%);
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 15px;
+    padding: 10px;
+    vertical-align: top;
+}
+fieldset{
+    width: 870px;
+    height: 750px;
+}
+.input{
+    margin-top: 10px;
+    font-weight: bold;
+}
