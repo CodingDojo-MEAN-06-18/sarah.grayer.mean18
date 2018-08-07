@@ -1,0 +1,27 @@
+<h1>Product Edit</h1>
+<div id="main">
+  <section>
+    <fieldset>
+      <form (submit)="onUpdate()" #productForm = "ngForm">
+      <div class = "inputs" *ngIf="product">
+        <div class = "entry">
+          <label for="">Title: </label>
+          <input type="text" name="title" [(ngModel)]="product.title">
+        </div>
+        <div class = "entry">
+          <label for="">Price: </label>
+          <input type="number" name="price" [(ngModel)]="product.price"> 
+        </div>
+        <div class = "entry">  
+        <label for="">Image URL: </label>
+        <input type="text" name = "imgURL" [(ngModel)]="product.imgURL">
+        </div>
+        <div class = "buttons">
+          <button class="submit" id="update">Update</button>
+          <button class="delete" id="delete" (click)="onDelete(product)">Delete</button>      
+        </div>
+      </div>
+      </form>
+    </fieldset>
+  </section>
+</div>

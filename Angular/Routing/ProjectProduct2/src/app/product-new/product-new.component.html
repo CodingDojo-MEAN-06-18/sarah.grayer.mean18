@@ -1,0 +1,39 @@
+<h1>Create a New Product</h1>
+
+<!--{{ productForm.value | json }} view this.procuct instance-->
+
+<form (submit)='onSubmit($event, productForm)' #productForm="ngForm"> <!--angular's $event allows to send this form as an event. Here, passing in the event and the productForm to onSubmit()-->
+  <div class = "entry"> 
+    <label for="">Title: </label>  <!--[(ngModel)] for two-way data binding, reflects info in product instance variable, can view in pipe -->
+    <input  
+    type = "text" 
+    name="title"
+    required
+    minlength = '4'
+    [(ngModel)]="newProduct.title" 
+    #title='ngModel'>
+    <div class="errors" *ngIf="!title.valid && title.touched">Please enter a title with at least 4 characters</div>
+  </div>
+  <div class = "entry">
+    <label for="">Price: </label>  
+    <input 
+    type = "number" 
+    name="price"
+    required
+    [(ngModel)]="newProduct.price"
+    #price='ngModel'>
+    <div class="errors" *ngIf="!price.valid && price.touched">Please enter a price</div>
+  </div>
+  <div class = "entry">
+    <label for="">Image URL: </label>
+    <input 
+    type = "text" 
+    name="imgURL"
+    [(ngModel)]="newProduct.imgURL"
+    #imgURL='ngModel'>
+  </div>
+  <button input type="submit" [hidden]= "!productForm.valid" id="create">Create!</button> <!--can make hidden/disabled, could also use *ngIf='productForm.valid' to display a button. -->
+</form>
+
+
+

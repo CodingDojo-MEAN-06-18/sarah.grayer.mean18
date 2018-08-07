@@ -1,0 +1,18 @@
+.entry{
+    margin: 15px;
+}
+button{
+    margin-top: 5px;
+    margin-left: 15px;
+    color: white;
+    padding: 5px 11px;
+}
+.buttons{
+    margin-left: 100px;
+}
+#update{
+    background-color: #009ac7;
+}
+#delete{
+    background-color: #d02a27;
+}

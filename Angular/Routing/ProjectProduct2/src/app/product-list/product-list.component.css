@@ -1,0 +1,40 @@
+#edit{  
+    background-color: #fe9900;    
+}
+
+#delete{
+    background-color: #d02a27;
+}
+
+button{
+    color: white;
+    padding: 7px 0px;
+    display: block;
+    width: 150px;
+    margin-top: 5px;
+    margin-left: 24px;
+}
+
+img{
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+}
+
+#noimg{
+    height: 78px;
+    padding-top: 25px;
+}
+
+.product{
+    width: 200px;
+    height: 320px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+
+

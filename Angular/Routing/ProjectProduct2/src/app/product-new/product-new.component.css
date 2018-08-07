@@ -1,0 +1,14 @@
+.entry{
+    margin: 15px;
+}
+.errors{
+    color: red;
+    font-style: italic;
+    padding-top: 3px;
+}
+#create{
+    color: white;
+    padding: 5px 11px;
+    background-color: #009d0f;
+    margin-left: 150px;
+}
